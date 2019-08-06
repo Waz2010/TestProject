@@ -1,0 +1,19 @@
+﻿@model IEnumerable<JsonToJsonCompareEngine.MVC.Models.County>
+<div class="content">
+    <div class="input">
+        <table id="input-table">
+            <tr>
+                <td>
+                    <p>
+                        <b>County</b>
+                        <br />
+                        @Html.DropDownListFor(m => m, new SelectList(Model, "Id", "StateName"), "Select State", new { @id = "ddlstate", @style = "width:200px;" })
+                        <br />
+                    </p>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+

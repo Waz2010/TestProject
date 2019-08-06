@@ -3,3 +3,12 @@
 ################################################################################
 
 /.vs
+/JosnToJsonCompareEngine.Tests/bin/Debug/netcoreapp2.1
+/JosnToJsonCompareEngine.Tests/obj
+/JsonToJsonCompareEngine/bin/Debug/netcoreapp2.1
+/JsonToJsonCompareEngine/obj
+/JsonToJsonCompareEngine.MVC/bin
+/JsonToJsonCompareEngine.MVC/obj/Debug
+/JsonToJsonCompareEngine.UI/bin/Debug/netcoreapp2.1
+/JsonToJsonCompareEngine.UI/obj
+/packages

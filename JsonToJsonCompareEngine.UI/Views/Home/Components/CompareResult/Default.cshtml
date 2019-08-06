@@ -1,0 +1,51 @@
+﻿@model JsonToJsonCompareEngine.ComparisonOutput
+@{
+    ViewData["Title"] = "Grid";
+}
+
+<div style="align-self:center">
+    <table class="event-list">
+        <tr style="background-color:cyan">
+            <th rowspan="2">SL No.</th>
+            <th rowspan="2">File Names</th>
+            <th colspan="2">State</th>
+            <th colspan="2" align="center">File Exists ?</th>
+            <th colspan="2" align="center">Total Elements Count</th>
+            <th rowspan="2" align="center">Matched elements Count</th>
+            <th rowspan="2">Mismatched Count</th>
+            <th colspan="2" align="center">Current Version</th>
+            <th rowspan="2">Exclusion Count</th>
+        </tr>
+        <tr style="background-color:cyan" border:"2px">
+            <th>Previous Version</th>
+            <th>Current Version</th>
+            <th>Previous Version</th>
+            <th>Current Version</th>
+            <th>Previous Version</th>
+            <th>Current Version</th>
+            <th>Removed Elements</th>
+            <th>Added Elements</th>
+        </tr>
+        @if (Model.FileCompareResult != null)
+        {
+        <tr>
+            <td>1</td>
+            <td>@Model.FileCompareResult.FileName</td>
+            <td>@Model.FileCompareResult.StateInPrevious</td>
+            <td>@Model.FileCompareResult.StateInCurrent</td>
+            <td>@Model.FileCompareResult.FileExistInNew</td>
+            <td>@Model.FileCompareResult.FileExistInOld</td>
+            <td>@Model.FileCompareResult.TotalElementsCountInNew</td>
+            <td>@Model.FileCompareResult.TotalElementsCountInOld</td>
+            <td>@Model.FileCompareResult.MatchedElementsCount</td>
+            <td>@Model.FileCompareResult.MismatchedCounts</td>
+            <td>@Model.FileCompareResult.RemovedElementsInNew</td>
+            <td>@Model.FileCompareResult.AddedElementsInNew</td>
+            <td>@Model.FileCompareResult.ExclusionCount</td>
+        </tr>
+        }
+    </table>
+</div>
+
+
+

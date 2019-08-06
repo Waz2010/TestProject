@@ -1,0 +1,62 @@
+﻿@model JsonToJsonCompareEngine.MVC.Models.ViewModel
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Scripts{
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+<script language="javascript" type="text/javascript">function GetCounty(_stateId) {
+        alert("Hello");
+        var procemessage = "<option value='0'> Please wait...</option>";
+        $("#County").html(procemessage).show();
+        var url = "/Home/GetCounties/";
+
+        $.ajax({
+            url: url,
+            data: { stateId: _stateId },
+            cache: false,
+            type: "POST",
+            success: function (data) {
+                var markup = "<option value='0'>Select City</option>";
+                for (var x = 0; x < data.length; x++) {
+                    markup += "<option value=" + data.[x].Value + ">" + data[x].Text + "</option>";
+                }
+                $("#County").html(markup).show();
+            },
+            error: function (reponse) {
+                alert("error : " + reponse);
+            }
+        });
+
+    }</script>
+}
+<h2>Welcome to ASP.NET MVC!</h2>
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="header"></div>
+        <div class="content">
+            <div class="input">
+                <table id="input-table">
+                    <tr>
+                        <td>
+                            <p>
+                                <b>State</b>
+                                <br />
+                                @Html.DropDownListFor(m => m.States, new SelectList(Model.States, "Id", "StateName"), "Select State", new { @id = "ddlstate", @style = "width:200px;", @onchange = "javascript:GetCounty(this.value);" })
+                                <br />
+                                <br />
+                                <b>County</b>
+                                <br />
+                                <select id="County" name="County" style="width: 200px"></select>
+                                @*@Html.DropDownListFor(m => m.CountyId, new SelectList(Model.Counties, "Value", "Text"), "Select County", htmlAttributes: new { @id = "County", @style = "width:200px;" })*@
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="footer"></div>
+    </div>
+}
